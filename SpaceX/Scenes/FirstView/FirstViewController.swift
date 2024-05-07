@@ -60,6 +60,187 @@ class FirstViewController: UIViewController {
         return cv
     }()
     
+    let firstLaunchTitle: UILabel = {
+        let label = UILabel()
+        label.text = "First launch"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let firstLaunchValue: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let countryTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Country"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let countryValue: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let launchCostTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Launch cost"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let launchCostValue: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let firstStageTitle: UILabel = {
+        let label = UILabel()
+        label.text = "FIRST STAGE"
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let numberOfEnginesTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Number of engines"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let numberOfEnginesValue: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let amountOfFuelInTonsTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Amount of fuel in tons"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let amountOfFuelInTonsValue: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let burnTimeTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Burn time in sec"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let burnTimeValue: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    let secondStageTitle: UILabel = {
+        let label = UILabel()
+        label.text = "SECOND STAGE"
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let numberOfEnginesTitleSecond: UILabel = {
+        let label = UILabel()
+        label.text = "Number of engines"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let numberOfEnginesValueSecond: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let amountOfFuelInTonsTitleSecond: UILabel = {
+        let label = UILabel()
+        label.text = "Amount of fuel in tons"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let amountOfFuelInTonsValueSecond: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let burnTimeTitleSecond: UILabel = {
+        let label = UILabel()
+        label.text = "Burn time in sec"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let burnTimeValueSecond: UILabel = {
+        let label = UILabel()
+        label.text = "No data"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +278,29 @@ class FirstViewController: UIViewController {
         backgroundInfo.addSubview(titleLabel)
         backgroundInfo.addSubview(scrollViewParameterInfo)
         
+        backgroundInfo.addSubview(firstLaunchTitle)
+        backgroundInfo.addSubview(firstLaunchValue)
+        backgroundInfo.addSubview(countryTitle)
+        backgroundInfo.addSubview(countryValue)
+        backgroundInfo.addSubview(launchCostTitle)
+        backgroundInfo.addSubview(launchCostValue)
+        backgroundInfo.addSubview(firstStageTitle)
+        backgroundInfo.addSubview(numberOfEnginesTitle)
+        backgroundInfo.addSubview(numberOfEnginesValue)
+        backgroundInfo.addSubview(amountOfFuelInTonsTitle)
+        backgroundInfo.addSubview(amountOfFuelInTonsValue)
+        backgroundInfo.addSubview(burnTimeTitle)
+        backgroundInfo.addSubview(burnTimeValue)
+        
+        backgroundInfo.addSubview(secondStageTitle)
+        backgroundInfo.addSubview(numberOfEnginesTitleSecond)
+        backgroundInfo.addSubview(numberOfEnginesValueSecond)
+        backgroundInfo.addSubview(amountOfFuelInTonsTitleSecond)
+        backgroundInfo.addSubview(amountOfFuelInTonsValueSecond)
+        backgroundInfo.addSubview(burnTimeTitleSecond)
+        backgroundInfo.addSubview(burnTimeValueSecond)
+        
+        
         NSLayoutConstraint.activate([
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -110,8 +314,6 @@ class FirstViewController: UIViewController {
             
             mainContentView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor, multiplier: 2),
             mainContentView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
-            
-            
             
             scrollViewRocketImage.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor),
             scrollViewRocketImage.trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor),
@@ -131,6 +333,69 @@ class FirstViewController: UIViewController {
             scrollViewParameterInfo.leadingAnchor.constraint(equalTo: backgroundInfo.leadingAnchor),
             scrollViewParameterInfo.heightAnchor.constraint(equalToConstant: 110),
             
+            firstLaunchTitle.topAnchor.constraint(equalTo: scrollViewParameterInfo.bottomAnchor, constant: 30),
+            firstLaunchTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            firstLaunchValue.topAnchor.constraint(equalTo: scrollViewParameterInfo.bottomAnchor, constant: 30),
+            firstLaunchValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            countryTitle.topAnchor.constraint(equalTo: firstLaunchTitle.bottomAnchor, constant: 16),
+            countryTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            countryValue.topAnchor.constraint(equalTo: firstLaunchValue.bottomAnchor, constant: 16),
+            countryValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            launchCostTitle.topAnchor.constraint(equalTo: countryTitle.bottomAnchor, constant: 16),
+            launchCostTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            launchCostValue.topAnchor.constraint(equalTo: countryValue.bottomAnchor, constant: 16),
+            launchCostValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            firstStageTitle.topAnchor.constraint(equalTo: launchCostTitle.bottomAnchor, constant: 30),
+            firstStageTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            numberOfEnginesTitle.topAnchor.constraint(equalTo: firstStageTitle.bottomAnchor, constant: 16),
+            numberOfEnginesTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            numberOfEnginesValue.topAnchor.constraint(equalTo: firstStageTitle.bottomAnchor, constant: 16),
+            numberOfEnginesValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            amountOfFuelInTonsTitle.topAnchor.constraint(equalTo: numberOfEnginesTitle.bottomAnchor, constant: 16),
+            amountOfFuelInTonsTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            amountOfFuelInTonsValue.topAnchor.constraint(equalTo: numberOfEnginesValue.bottomAnchor, constant: 16),
+            amountOfFuelInTonsValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            burnTimeTitle.topAnchor.constraint(equalTo: amountOfFuelInTonsTitle.bottomAnchor, constant: 16),
+            burnTimeTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            burnTimeValue.topAnchor.constraint(equalTo: amountOfFuelInTonsValue.bottomAnchor, constant: 16),
+            burnTimeValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            
+            
+            
+            secondStageTitle.topAnchor.constraint(equalTo: burnTimeTitle.bottomAnchor, constant: 30),
+            secondStageTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            numberOfEnginesTitleSecond.topAnchor.constraint(equalTo: secondStageTitle.bottomAnchor, constant: 16),
+            numberOfEnginesTitleSecond.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            numberOfEnginesValueSecond.topAnchor.constraint(equalTo: secondStageTitle.bottomAnchor, constant: 16),
+            numberOfEnginesValueSecond.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            amountOfFuelInTonsTitleSecond.topAnchor.constraint(equalTo: numberOfEnginesTitleSecond.bottomAnchor, constant: 16),
+            amountOfFuelInTonsTitleSecond.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            amountOfFuelInTonsValueSecond.topAnchor.constraint(equalTo: numberOfEnginesValueSecond.bottomAnchor, constant: 16),
+            amountOfFuelInTonsValueSecond.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            burnTimeTitleSecond.topAnchor.constraint(equalTo: amountOfFuelInTonsTitleSecond.bottomAnchor, constant: 16),
+            burnTimeTitleSecond.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
+            
+            burnTimeValueSecond.topAnchor.constraint(equalTo: amountOfFuelInTonsValueSecond.bottomAnchor, constant: 16),
+            burnTimeValueSecond.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
             pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
@@ -149,6 +414,16 @@ class FirstViewController: UIViewController {
         }
         
         titleLabel.text = rocket.name
+        firstLaunchValue.text = rocket.firstFlight
+        countryValue.text = rocket.country
+        launchCostValue.text = "$\(rocket.costPerLaunch)"
+        numberOfEnginesValue.text = "\(rocket.firstStage.engines)"
+        amountOfFuelInTonsValue.text = "\(rocket.firstStage.fuelAmountTons) ton"
+        burnTimeValue.text = "\(rocket.firstStage.burnTimeSEC ?? 0) sec"
+        numberOfEnginesValueSecond.text = "\(rocket.secondStage.engines)"
+        amountOfFuelInTonsValueSecond.text = "\(rocket.secondStage.fuelAmountTons) ton"
+        burnTimeValueSecond.text = "\(rocket.secondStage.burnTimeSEC ?? 0) sec"
+        
         
         if let viewModel = firstViewModel {
             pageControl.numberOfPages = viewModel.rocketInfo.count
@@ -249,7 +524,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ParameterInfoCell", for: indexPath) as! ParameterInfoCell
         cell.layer.cornerRadius = 25
-        cell.backgroundColor = UIColor.darcGreyColorBackground
+        cell.backgroundColor = UIColor.darkGreyColorBackground
         return cell
     }
     
