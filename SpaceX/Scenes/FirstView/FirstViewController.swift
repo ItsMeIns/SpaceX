@@ -372,9 +372,6 @@ class FirstViewController: UIViewController {
             burnTimeValue.topAnchor.constraint(equalTo: amountOfFuelInTonsValue.bottomAnchor, constant: 16),
             burnTimeValue.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
             
-            
-            
-            
             secondStageTitle.topAnchor.constraint(equalTo: burnTimeTitle.bottomAnchor, constant: 30),
             secondStageTitle.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
             
@@ -401,6 +398,8 @@ class FirstViewController: UIViewController {
         ])
         
         scrollViewRocketImage.isScrollEnabled = false
+        scrollViewParameterInfo.contentInset = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
+        scrollViewParameterInfo.contentInsetAdjustmentBehavior = .never
     }
     
     func setupNotificationObserver() {
