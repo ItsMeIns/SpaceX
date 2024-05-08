@@ -51,6 +51,19 @@ class FirstViewController: UIViewController {
         return label
     }()
     
+    let buttonSettings: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(.setting, for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        button.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
+
+        button.tintColor = UIColor.white
+        button.imageView?.contentMode = .scaleAspectFit
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     let scrollViewParameterInfo: UICollectionView = {
         let collectionView = UICollectionViewFlowLayout()
         collectionView.scrollDirection = .horizontal
@@ -241,8 +254,22 @@ class FirstViewController: UIViewController {
         return label
     }()
     
+    let buttonToRocketLaunchView: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("View launchers", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .darkGreyColorBackground
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(rocketLaunchButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
+        pageControl.backgroundColor = UIColor.darkGreyColorBackground
+        pageControl.layer.cornerRadius = 10
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.addTarget(self, action: #selector(pageControlValueChanged(_:)), for: .valueChanged)
         return pageControl
@@ -272,10 +299,11 @@ class FirstViewController: UIViewController {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(mainContentView)
         
-        mainScrollView.addSubview(scrollViewRocketImage)
-        mainScrollView.addSubview(backgroundInfo)
+        mainContentView.addSubview(scrollViewRocketImage)
+        mainContentView.addSubview(backgroundInfo)
         view.addSubview(pageControl)
         backgroundInfo.addSubview(titleLabel)
+        backgroundInfo.addSubview(buttonSettings)
         backgroundInfo.addSubview(scrollViewParameterInfo)
         
         backgroundInfo.addSubview(firstLaunchTitle)
@@ -299,7 +327,7 @@ class FirstViewController: UIViewController {
         backgroundInfo.addSubview(amountOfFuelInTonsValueSecond)
         backgroundInfo.addSubview(burnTimeTitleSecond)
         backgroundInfo.addSubview(burnTimeValueSecond)
-        
+        backgroundInfo.addSubview(buttonToRocketLaunchView)
         
         NSLayoutConstraint.activate([
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -312,23 +340,27 @@ class FirstViewController: UIViewController {
             mainContentView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             mainContentView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
             
-            mainContentView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor, multiplier: 2),
+            mainContentView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor, constant: 80),
             mainContentView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
             
             scrollViewRocketImage.leadingAnchor.constraint(equalTo: mainContentView.leadingAnchor),
             scrollViewRocketImage.trailingAnchor.constraint(equalTo: mainContentView.trailingAnchor),
-            scrollViewRocketImage.topAnchor.constraint(equalTo: mainContentView.topAnchor),
+            scrollViewRocketImage.topAnchor.constraint(equalTo: mainContentView.topAnchor, constant: -70),
             scrollViewRocketImage.heightAnchor.constraint(equalToConstant: 300),
             
-            backgroundInfo.topAnchor.constraint(equalTo: mainContentView.topAnchor, constant: 270),
+            backgroundInfo.topAnchor.constraint(equalTo: mainContentView.topAnchor, constant: 200),
+            backgroundInfo.bottomAnchor.constraint(equalTo: mainContentView.bottomAnchor, constant: 0),
             backgroundInfo.leftAnchor.constraint(equalTo: mainContentView.leftAnchor, constant: 0),
             backgroundInfo.rightAnchor.constraint(equalTo: mainContentView.rightAnchor, constant: -0),
-            backgroundInfo.bottomAnchor.constraint(equalTo: mainContentView.bottomAnchor, constant: 30),
             
             titleLabel.topAnchor.constraint(equalTo: backgroundInfo.topAnchor, constant: 40),
             titleLabel.leftAnchor.constraint(equalTo: backgroundInfo.leftAnchor, constant: 28),
             
-            scrollViewParameterInfo.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
+            buttonSettings.topAnchor.constraint(equalTo: backgroundInfo.topAnchor, constant: 40),
+            buttonSettings.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
+            
+            
+            scrollViewParameterInfo.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             scrollViewParameterInfo.trailingAnchor.constraint(equalTo: backgroundInfo.trailingAnchor),
             scrollViewParameterInfo.leadingAnchor.constraint(equalTo: backgroundInfo.leadingAnchor),
             scrollViewParameterInfo.heightAnchor.constraint(equalToConstant: 110),
@@ -393,6 +425,12 @@ class FirstViewController: UIViewController {
             burnTimeValueSecond.topAnchor.constraint(equalTo: amountOfFuelInTonsValueSecond.bottomAnchor, constant: 16),
             burnTimeValueSecond.rightAnchor.constraint(equalTo: backgroundInfo.rightAnchor, constant: -28),
             
+            buttonToRocketLaunchView.topAnchor.constraint(equalTo: burnTimeValueSecond.bottomAnchor, constant: 30),
+            buttonToRocketLaunchView.bottomAnchor.constraint(equalTo: backgroundInfo.bottomAnchor, constant: -40),
+            buttonToRocketLaunchView.leadingAnchor.constraint(equalTo: backgroundInfo.leadingAnchor, constant: 28),
+            buttonToRocketLaunchView.trailingAnchor.constraint(equalTo: backgroundInfo.trailingAnchor, constant: -28),
+            buttonToRocketLaunchView.heightAnchor.constraint(equalToConstant: 50),
+            
             pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
@@ -400,6 +438,7 @@ class FirstViewController: UIViewController {
         scrollViewRocketImage.isScrollEnabled = false
         scrollViewParameterInfo.contentInset = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
         scrollViewParameterInfo.contentInsetAdjustmentBehavior = .never
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setupNotificationObserver() {
@@ -507,11 +546,23 @@ class FirstViewController: UIViewController {
         }
     }
     
+    @objc func rocketLaunchButtonTapped() {
+        let secondVC = SecondViewController()
+        navigationController?.pushViewController(secondVC, animated: true)
+//        present(secondVC, animated: true, completion: nil)
+    }
+    
+    @objc func settingsButtonTapped() {
+        let settingsVC = ThirdViewController()
+        present(settingsVC, animated: true)
+    }
+    
 }
 
 extension FirstViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIndex = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
+        let pageIndex = (round(scrollView.contentOffset.x / scrollView.frame.width))
+        
     }
 }
 
