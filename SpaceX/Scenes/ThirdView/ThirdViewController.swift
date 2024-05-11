@@ -8,11 +8,17 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
+    
     //MARK: - Properties
     let heightItems = ["m", "ft"]
     let diameterItems = ["m", "ft"]
     let massItems = ["kg", "lb"]
     let payloadItems = ["kg", "lb"]
+    
+    var selectedHeightUnit: String?
+    var selectedDiameterUnit: String?
+    var selectedMassUnit: String?
+    var selectedPayloadUnit: String?
     
     
     //MARK: - UI Elements
@@ -105,6 +111,7 @@ class ThirdViewController: UIViewController {
         view.backgroundColor = .black
         
         setupLayout()
+        loadUserDefaultsValues()
     }
     
     func setupLayout() {
@@ -160,10 +167,59 @@ class ThirdViewController: UIViewController {
             payloadControl.heightAnchor.constraint(equalToConstant: 40),
             payloadControl.widthAnchor.constraint(equalToConstant: 120),
         ])
+        
+        heightControl.addTarget(self, action: #selector(heightControlValueChanged(_:)), for: .valueChanged)
+        diameterControl.addTarget(self, action: #selector(diameterControlValueChanged(_:)), for: .valueChanged)
+        massControl.addTarget(self, action: #selector(massControlValueChanged(_:)), for: .valueChanged)
+        payloadControl.addTarget(self, action: #selector(payloadControlValueChanged(_:)), for: .valueChanged)
     }
     
     @objc private func backButtonTapped() {
+        saveUserDefaultsValues()
         dismiss(animated: true)
     }
+    
+    func saveUserDefaultsValues() {
+        UserDefaults.standard.set(selectedHeightUnit, forKey: "selectedHeightUnit")
+        UserDefaults.standard.set(selectedDiameterUnit, forKey: "selectedDiameterUnit")
+        UserDefaults.standard.set(selectedMassUnit, forKey: "selectedMassUnit")
+        UserDefaults.standard.set(selectedPayloadUnit, forKey: "selectedPayloadUnit")
+    }
+    
+    func loadUserDefaultsValues() { //test
+        if let heightUnit = UserDefaults.standard.string(forKey: "selectedHeightUnit") {
+            selectedHeightUnit = heightUnit
+            heightControl.selectedSegmentIndex = heightItems.firstIndex(of: heightUnit) ?? 0
+        }
+        
+        if let diameterUnit = UserDefaults.standard.string(forKey: "selectedDiameterUnit") {
+            selectedDiameterUnit = diameterUnit
+            diameterControl.selectedSegmentIndex = diameterItems.firstIndex(of: diameterUnit) ?? 0
+        }
+        
+        if let massUnit = UserDefaults.standard.string(forKey: "selectedMassUnit") {
+            selectedMassUnit = massUnit
+            massControl.selectedSegmentIndex = massItems.firstIndex(of: massUnit) ?? 0
+        }
+        
+        if let payloadUnit = UserDefaults.standard.string(forKey: "selectedPayloadUnit") {
+            selectedPayloadUnit = payloadUnit
+            payloadControl.selectedSegmentIndex = payloadItems.firstIndex(of: payloadUnit) ?? 0
+        }
+    }
+    
+    @objc func heightControlValueChanged(_ sender: UISegmentedControl) {
+        selectedHeightUnit = heightItems[sender.selectedSegmentIndex]
+    }
+    @objc func diameterControlValueChanged(_ sender: UISegmentedControl) {
+        selectedDiameterUnit = diameterItems[sender.selectedSegmentIndex]
+    }
+    @objc func massControlValueChanged(_ sender: UISegmentedControl) {
+        selectedMassUnit = massItems[sender.selectedSegmentIndex]
+    }
+    @objc func payloadControlValueChanged(_ sender: UISegmentedControl) {
+        selectedPayloadUnit = payloadItems[sender.selectedSegmentIndex]
+    }
+    
     
 }

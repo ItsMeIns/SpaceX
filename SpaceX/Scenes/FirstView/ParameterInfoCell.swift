@@ -9,6 +9,8 @@ import UIKit
 
 class ParameterInfoCell: UICollectionViewCell {
     
+    
+    
     var rocket: RocketInfo? {
         didSet {
             updateLabels()
