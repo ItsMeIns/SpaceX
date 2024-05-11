@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA3EBC702BEF8DDD00C62C50 /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EBC6F2BEF8DDD00C62C50 /* LaunchCell.swift */; };
 		FA4491292BE6443800772FD1 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4491282BE6443800772FD1 /* FirstViewModel.swift */; };
 		FAAC69102BD681A9007BF6C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC690F2BD681A9007BF6C0 /* AppDelegate.swift */; };
 		FAAC69122BD681A9007BF6C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC69112BD681A9007BF6C0 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA3EBC6F2BEF8DDD00C62C50 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		FA4491282BE6443800772FD1 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		FAAC690C2BD681A9007BF6C0 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC690F2BD681A9007BF6C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		FAAC692E2BD687FD007BF6C0 /* SecondView */ = {
 			isa = PBXGroup;
 			children = (
+				FA3EBC6F2BEF8DDD00C62C50 /* LaunchCell.swift */,
 				FAAC69272BD6843D007BF6C0 /* SecondViewController.swift */,
 			);
 			path = SecondView;
@@ -227,6 +230,7 @@
 				FAAC69282BD6843D007BF6C0 /* SecondViewController.swift in Sources */,
 				FAAC69352BD6AB3D007BF6C0 /* RocketInfo.swift in Sources */,
 				FAAC692A2BD68455007BF6C0 /* ThirdViewController.swift in Sources */,
+				FA3EBC702BEF8DDD00C62C50 /* LaunchCell.swift in Sources */,
 				FAAC69102BD681A9007BF6C0 /* AppDelegate.swift in Sources */,
 				FAAC69122BD681A9007BF6C0 /* SceneDelegate.swift in Sources */,
 			);

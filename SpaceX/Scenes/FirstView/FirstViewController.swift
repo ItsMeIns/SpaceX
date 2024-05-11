@@ -293,6 +293,17 @@ class FirstViewController: UIViewController {
         firstViewModel?.fetchRocketInfo()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    
     
     //MARK: - intents -
     func setupLayout() {
@@ -438,7 +449,7 @@ class FirstViewController: UIViewController {
         scrollViewRocketImage.isScrollEnabled = false
         scrollViewParameterInfo.contentInset = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
         scrollViewParameterInfo.contentInsetAdjustmentBehavior = .never
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
     func setupNotificationObserver() {
@@ -468,6 +479,8 @@ class FirstViewController: UIViewController {
             updateImageViews(with: rocket.flickrImages)
             updateParameterInfoCells(with: rocket)
         }
+        
+        
     }
     
     func updateParameterInfoCells(with rocket: RocketInfo) {
@@ -547,9 +560,14 @@ class FirstViewController: UIViewController {
     }
     
     @objc func rocketLaunchButtonTapped() {
-        let secondVC = SecondViewController()
-        navigationController?.pushViewController(secondVC, animated: true)
-//        present(secondVC, animated: true, completion: nil)
+        if let rocketName = titleLabel.text, let rocket = firstViewModel?.rocketInfo.first(where: { $0.name == rocketName }) {
+            let secondVC = SecondViewController()
+            navigationController?.navigationBar.tintColor = .white
+            
+            secondVC.rocketName = rocketName
+            secondVC.rocketId = rocket.id
+            navigationController?.pushViewController(secondVC, animated: false)
+        }
     }
     
     @objc func settingsButtonTapped() {

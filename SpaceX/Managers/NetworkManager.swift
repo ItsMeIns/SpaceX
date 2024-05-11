@@ -50,7 +50,7 @@ class NetworkManager {
         }
     }
     
-    func getLaunch(completion: @escaping (Result <Launch, Error>) -> Void) {
+    func getLaunch(completion: @escaping (Result <[Launch], Error>) -> Void) {
         let apiURL = "https://api.spacexdata.com/v4/launches"
         
         guard let url = URL(string: apiURL) else {
@@ -63,7 +63,7 @@ class NetworkManager {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let info = try decoder.decode(Launch.self, from: data)
+                    let info = try decoder.decode([Launch].self, from: data)
                     completion(.success(info))
                 } catch {
                     completion(.failure(error))
