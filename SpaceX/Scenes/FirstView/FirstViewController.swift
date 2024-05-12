@@ -488,13 +488,13 @@ class FirstViewController: UIViewController {
             if let parameterInfoCell = cell as? ParameterInfoCell {
                 switch index {
                 case 0:
-                    parameterInfoCell.configure(with: "height")
+                    parameterInfoCell.configure(with: "height", unit: UserDefaults.standard.string(forKey: "selectedHeightUnit") ?? "m")
                 case 1:
-                    parameterInfoCell.configure(with: "diameter")
+                    parameterInfoCell.configure(with: "diameter", unit: UserDefaults.standard.string(forKey: "selectedDiameterUnit") ?? "m")
                 case 2:
-                    parameterInfoCell.configure(with: "mass")
+                    parameterInfoCell.configure(with: "mass", unit: UserDefaults.standard.string(forKey: "selectedMassUnit") ?? "kg")
                 case 3:
-                    parameterInfoCell.configure(with: "payload")
+                    parameterInfoCell.configure(with: "payload", unit: UserDefaults.standard.string(forKey: "selectedPayloadUnit") ?? "kg")
                 default:
                     break
                 }
@@ -591,6 +591,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ParameterInfoCell", for: indexPath) as! ParameterInfoCell
+        
         cell.layer.cornerRadius = 25
         cell.backgroundColor = UIColor.darkGreyColorBackground
         return cell

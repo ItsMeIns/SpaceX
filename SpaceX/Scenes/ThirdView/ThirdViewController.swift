@@ -186,7 +186,7 @@ class ThirdViewController: UIViewController {
         UserDefaults.standard.set(selectedPayloadUnit, forKey: "selectedPayloadUnit")
     }
     
-    func loadUserDefaultsValues() { //test
+    func loadUserDefaultsValues() {
         if let heightUnit = UserDefaults.standard.string(forKey: "selectedHeightUnit") {
             selectedHeightUnit = heightUnit
             heightControl.selectedSegmentIndex = heightItems.firstIndex(of: heightUnit) ?? 0

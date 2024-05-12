@@ -9,7 +9,10 @@ import UIKit
 
 class ParameterInfoCell: UICollectionViewCell {
     
-    
+    var heightUnit: String?
+    var diameterUnit: String?
+    var massUnit: String?
+    var payloadUnit: String?
     
     var rocket: RocketInfo? {
         didSet {
@@ -55,15 +58,25 @@ class ParameterInfoCell: UICollectionViewCell {
     private func updateLabels() {
         if let rocket = rocket {
             switch titleLabel.text {
-            case "height":
+            case "height (m)":
                 valueLabel.text = "\(rocket.height.meters ?? 0)"
-            case "diameter":
+            case "height (ft)":
+                valueLabel.text = "\(rocket.height.feet ?? 0)"
+            case "diameter (m)":
                 valueLabel.text = "\(rocket.diameter.meters ?? 0)"
-            case "mass":
-                valueLabel.text = "\(rocket.mass.kg ?? 0)"
-            case "payload":
+            case "diameter (ft)":
+                valueLabel.text = "\(rocket.diameter.feet ?? 0)"
+            case "mass (kg)":
+                valueLabel.text = "\(rocket.mass.kg)"
+            case "mass (lb)":
+                valueLabel.text = "\(rocket.mass.lb)"
+            case "payload (kg)":
                 if let payloadWeight = rocket.payloadWeights.first(where: { $0.id == "leo" }) {
                     valueLabel.text = "\(payloadWeight.kg)"
+                }
+            case "payload (lb)":
+                if let payloadWeight = rocket.payloadWeights.first(where: { $0.id == "leo" }) {
+                    valueLabel.text = "\(payloadWeight.lb)"
                 }
             default:
                 valueLabel.text = "-"
@@ -71,7 +84,8 @@ class ParameterInfoCell: UICollectionViewCell {
         }
     }
     
-    func configure(with title: String) {
-        titleLabel.text = title
+    func configure(with title: String, unit: String) {
+        titleLabel.text = "\(title) (\(unit))"
+        updateLabels()
     }
 }
