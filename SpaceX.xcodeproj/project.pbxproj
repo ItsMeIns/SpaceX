@@ -20,6 +20,7 @@
 		FAAC69352BD6AB3D007BF6C0 /* RocketInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC69342BD6AB3D007BF6C0 /* RocketInfo.swift */; };
 		FAAC69372BD6AB4F007BF6C0 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC69362BD6AB4F007BF6C0 /* Launch.swift */; };
 		FAB66BFB2BE7BCCD0040A8BA /* ParameterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB66BFA2BE7BCCD0040A8BA /* ParameterInfoCell.swift */; };
+		FAC1162C2BF50A18007BFBB0 /* FirstContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1162B2BF50A18007BFBB0 /* FirstContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FAAC69342BD6AB3D007BF6C0 /* RocketInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketInfo.swift; sourceTree = "<group>"; };
 		FAAC69362BD6AB4F007BF6C0 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		FAB66BFA2BE7BCCD0040A8BA /* ParameterInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterInfoCell.swift; sourceTree = "<group>"; };
+		FAC1162B2BF50A18007BFBB0 /* FirstContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				FA4491282BE6443800772FD1 /* FirstViewModel.swift */,
 				FAB66BFA2BE7BCCD0040A8BA /* ParameterInfoCell.swift */,
+				FAC1162B2BF50A18007BFBB0 /* FirstContentView.swift */,
 				FAAC692B2BD68489007BF6C0 /* FirstViewController.swift */,
 			);
 			path = FirstView;
@@ -225,6 +228,7 @@
 				FAAC69322BD69A08007BF6C0 /* NetworkManager.swift in Sources */,
 				FA4491292BE6443800772FD1 /* FirstViewModel.swift in Sources */,
 				FAB66BFB2BE7BCCD0040A8BA /* ParameterInfoCell.swift in Sources */,
+				FAC1162C2BF50A18007BFBB0 /* FirstContentView.swift in Sources */,
 				FAAC692C2BD68489007BF6C0 /* FirstViewController.swift in Sources */,
 				FAAC69372BD6AB4F007BF6C0 /* Launch.swift in Sources */,
 				FAAC69282BD6843D007BF6C0 /* SecondViewController.swift in Sources */,

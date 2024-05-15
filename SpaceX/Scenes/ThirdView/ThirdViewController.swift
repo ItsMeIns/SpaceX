@@ -33,10 +33,10 @@ class ThirdViewController: UIViewController {
     
     let backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Back", for: .normal)
+        button.setTitle("Save", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -174,7 +174,7 @@ class ThirdViewController: UIViewController {
         payloadControl.addTarget(self, action: #selector(payloadControlValueChanged(_:)), for: .valueChanged)
     }
     
-    @objc private func backButtonTapped() {
+    @objc private func saveButtonTapped() {
         saveUserDefaultsValues()
         dismiss(animated: true)
     }
