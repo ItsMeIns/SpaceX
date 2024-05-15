@@ -21,6 +21,8 @@
 		FAAC69372BD6AB4F007BF6C0 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC69362BD6AB4F007BF6C0 /* Launch.swift */; };
 		FAB66BFB2BE7BCCD0040A8BA /* ParameterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB66BFA2BE7BCCD0040A8BA /* ParameterInfoCell.swift */; };
 		FAC1162C2BF50A18007BFBB0 /* FirstContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1162B2BF50A18007BFBB0 /* FirstContentView.swift */; };
+		FAC1162E2BF513D8007BFBB0 /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1162D2BF513D8007BFBB0 /* ThirdViewModel.swift */; };
+		FAC116302BF5140A007BFBB0 /* ThirdContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1162F2BF5140A007BFBB0 /* ThirdContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		FAAC69362BD6AB4F007BF6C0 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		FAB66BFA2BE7BCCD0040A8BA /* ParameterInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterInfoCell.swift; sourceTree = "<group>"; };
 		FAC1162B2BF50A18007BFBB0 /* FirstContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstContentView.swift; sourceTree = "<group>"; };
+		FAC1162D2BF513D8007BFBB0 /* ThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
+		FAC1162F2BF5140A007BFBB0 /* ThirdContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		FAAC692F2BD68807007BF6C0 /* ThirdView */ = {
 			isa = PBXGroup;
 			children = (
+				FAC1162D2BF513D8007BFBB0 /* ThirdViewModel.swift */,
+				FAC1162F2BF5140A007BFBB0 /* ThirdContentView.swift */,
 				FAAC69292BD68455007BF6C0 /* ThirdViewController.swift */,
 			);
 			path = ThirdView;
@@ -232,6 +238,8 @@
 				FAAC692C2BD68489007BF6C0 /* FirstViewController.swift in Sources */,
 				FAAC69372BD6AB4F007BF6C0 /* Launch.swift in Sources */,
 				FAAC69282BD6843D007BF6C0 /* SecondViewController.swift in Sources */,
+				FAC1162E2BF513D8007BFBB0 /* ThirdViewModel.swift in Sources */,
+				FAC116302BF5140A007BFBB0 /* ThirdContentView.swift in Sources */,
 				FAAC69352BD6AB3D007BF6C0 /* RocketInfo.swift in Sources */,
 				FAAC692A2BD68455007BF6C0 /* ThirdViewController.swift in Sources */,
 				FA3EBC702BEF8DDD00C62C50 /* LaunchCell.swift in Sources */,

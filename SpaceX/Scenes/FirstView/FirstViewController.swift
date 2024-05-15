@@ -12,13 +12,14 @@ class FirstViewController: UIViewController {
     //MARK: - Properties -
     var firstViewModel: FirstViewModel?
     private let contentView = FirstContentView()
-    var imageViews: [UIImageView] = []
+    
     
     
 //    //MARK: - Content -
 
     
     //MARK: - Life cycle -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -30,7 +31,7 @@ class FirstViewController: UIViewController {
 
         setupNotificationObserver()
         
-        firstViewModel = FirstViewModel()
+        firstViewModel = FirstViewModel(contentView: contentView)
         firstViewModel?.fetchRocketInfo()
     }
     
@@ -55,7 +56,6 @@ class FirstViewController: UIViewController {
     
     //MARK: - intents -
 
-    
     func setupNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI(_:)), name: .updateUI, object: firstViewModel)
     }
@@ -77,10 +77,9 @@ class FirstViewController: UIViewController {
         contentView.amountOfFuelInTonsValueSecond.text = "\(rocket.secondStage.fuelAmountTons) ton"
         contentView.burnTimeValueSecond.text = "\(rocket.secondStage.burnTimeSEC ?? 0) sec"
         
-        
         if let viewModel = firstViewModel {
             contentView.pageControl.numberOfPages = viewModel.rocketInfo.count
-            updateImageViews(with: rocket.flickrImages)
+            firstViewModel?.updateImageViews(with: rocket.flickrImages)
         }
         updateParameterInfoCells(with: rocket)
         
@@ -106,46 +105,46 @@ class FirstViewController: UIViewController {
         }
     }
     
-    func updateImageViews(with imageNames: [String]) {
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = contentView.scrollViewRocketImage.bounds.height
-        contentView.scrollViewRocketImage.contentSize = CGSize(width: screenWidth * CGFloat(imageNames.count), height: screenHeight)
-        
-        for (index, imageName) in imageNames.enumerated() {
-            let imageView = UIImageView(frame: CGRect(x: screenWidth * CGFloat(index), y: 0, width: screenWidth, height: screenHeight))
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            
-            let randomIndex = Int.random(in: 0..<imageNames.count)
-            let randomImageName = imageNames[randomIndex]
-            
-            if let randomImageURL = URL(string: randomImageName) {
-                loadImageFromURL(randomImageURL) { randomImage in
-                    DispatchQueue.main.async {
-                        imageView.image = randomImage
-                    }
-                }
-            }
-            contentView.scrollViewRocketImage.addSubview(imageView)
-            imageViews.append(imageView)
-        }
-    }
-    
-    func loadImageFromURL(_ url: URL, completion: @escaping (UIImage?) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error loading image: \(error.localizedDescription)")
-                completion(nil)
-                return
-            }
-            
-            guard let data = data, let image = UIImage(data: data) else {
-                completion(nil)
-                return
-            }
-            completion(image)
-        }.resume()
-    }
+//    func updateImageViews(with imageNames: [String]) {
+//        let screenWidth = UIScreen.main.bounds.width
+//        let screenHeight = contentView.scrollViewRocketImage.bounds.height
+//        contentView.scrollViewRocketImage.contentSize = CGSize(width: screenWidth * CGFloat(imageNames.count), height: screenHeight)
+//        
+//        for (index, imageName) in imageNames.enumerated() {
+//            let imageView = UIImageView(frame: CGRect(x: screenWidth * CGFloat(index), y: 0, width: screenWidth, height: screenHeight))
+//            imageView.contentMode = .scaleAspectFill
+//            imageView.clipsToBounds = true
+//            
+//            let randomIndex = Int.random(in: 0..<imageNames.count)
+//            let randomImageName = imageNames[randomIndex]
+//            
+//            if let randomImageURL = URL(string: randomImageName) {
+//                loadImageFromURL(randomImageURL) { randomImage in
+//                    DispatchQueue.main.async {
+//                        imageView.image = randomImage
+//                    }
+//                }
+//            }
+//            contentView.scrollViewRocketImage.addSubview(imageView)
+//            imageViews.append(imageView)
+//        }
+//    }
+//    
+//    func loadImageFromURL(_ url: URL, completion: @escaping (UIImage?) -> Void) {
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let error = error {
+//                print("Error loading image: \(error.localizedDescription)")
+//                completion(nil)
+//                return
+//            }
+//            
+//            guard let data = data, let image = UIImage(data: data) else {
+//                completion(nil)
+//                return
+//            }
+//            completion(image)
+//        }.resume()
+//    }
     
     @objc func pageControlValueChanged(_ sender: UIPageControl) {
         let currentPage = sender.currentPage

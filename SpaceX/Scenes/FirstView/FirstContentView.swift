@@ -10,7 +10,8 @@ import UIKit
 class FirstContentView: UIView {
     
     
-    //MARK: - Content -
+    //MARK: - UI Elements -
+    
     let mainScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -268,7 +269,7 @@ class FirstContentView: UIView {
     }()
     
     
-    
+    //MARK: - Intents -
     
     func setupLayout() {
         self.addSubview(mainScrollView)
