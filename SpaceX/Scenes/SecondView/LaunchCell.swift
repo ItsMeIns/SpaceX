@@ -9,6 +9,14 @@ import UIKit
 
 class LaunchCell: UITableViewCell {
     
+    let customBackgroundView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.backgroundColor = .darkGreyColorBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "test"
@@ -53,27 +61,33 @@ class LaunchCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        contentView.addSubview(rocketLogoView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(dateLabel)
-        contentView.addSubview(rocketImageView)
+        contentView.addSubview(customBackgroundView)
+        customBackgroundView.addSubview(rocketLogoView)
+        customBackgroundView.addSubview(nameLabel)
+        customBackgroundView.addSubview(dateLabel)
+        customBackgroundView.addSubview(rocketImageView)
         
         
         NSLayoutConstraint.activate([
-            rocketLogoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            rocketLogoView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            customBackgroundView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+            customBackgroundView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+            customBackgroundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            customBackgroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            
+            rocketLogoView.leadingAnchor.constraint(equalTo: customBackgroundView.leadingAnchor, constant: 16),
+            rocketLogoView.centerYAnchor.constraint(equalTo: customBackgroundView.centerYAnchor),
             rocketLogoView.heightAnchor.constraint(equalToConstant: 35),
             rocketLogoView.widthAnchor.constraint(equalToConstant: 35),
             
             nameLabel.leftAnchor.constraint(equalTo: rocketLogoView.rightAnchor, constant: 16),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            nameLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 16),
             
             dateLabel.leftAnchor.constraint(equalTo: rocketLogoView.rightAnchor, constant: 16),
-            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            dateLabel.bottomAnchor.constraint(equalTo: customBackgroundView.bottomAnchor, constant: -16),
             dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             
-            rocketImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            rocketImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            rocketImageView.trailingAnchor.constraint(equalTo: customBackgroundView.trailingAnchor, constant: -16),
+            rocketImageView.centerYAnchor.constraint(equalTo: customBackgroundView.centerYAnchor),
             rocketImageView.heightAnchor.constraint(equalToConstant: 24),
             rocketImageView.widthAnchor.constraint(equalToConstant: 24)
         ])
@@ -110,14 +124,13 @@ class LaunchCell: UITableViewCell {
         
         if let isSuccessful = launch.success {
             if isSuccessful {
-                rocketImageView.image = UIImage(systemName: "arrow.up.forward.circle")
+                rocketImageView.image = UIImage(named: "rocketUP")
                 rocketImageView.tintColor = .green
             } else {
-                rocketImageView.image = UIImage(systemName: "arrow.down.backward.circle")
+                rocketImageView.image = UIImage(named: "rocketDOWN")
                 rocketImageView.tintColor = .red
             }
         } else {
-            // Обробка випадку, коли success є nil
             rocketImageView.image = UIImage(systemName: "questionmark")
             rocketImageView.tintColor = .gray
         }

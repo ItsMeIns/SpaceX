@@ -91,11 +91,14 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .black
         let launch = launches[indexPath.row]
         cell.configure(launch: launch)
+        cell.selectedBackgroundView?.isHidden = true
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 100
     }
+    
+    
 }
