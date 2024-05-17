@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA3EBC702BEF8DDD00C62C50 /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3EBC6F2BEF8DDD00C62C50 /* LaunchCell.swift */; };
 		FA4491292BE6443800772FD1 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4491282BE6443800772FD1 /* FirstViewModel.swift */; };
+		FAA9CD9D2BF7932F00BE6462 /* ThirdViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9CD9C2BF7932F00BE6462 /* ThirdViewControllerDelegate.swift */; };
 		FAAC69102BD681A9007BF6C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC690F2BD681A9007BF6C0 /* AppDelegate.swift */; };
 		FAAC69122BD681A9007BF6C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC69112BD681A9007BF6C0 /* SceneDelegate.swift */; };
 		FAAC69192BD681AA007BF6C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAC69182BD681AA007BF6C0 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		FA3EBC6F2BEF8DDD00C62C50 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		FA4491282BE6443800772FD1 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		FAA9CD9C2BF7932F00BE6462 /* ThirdViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewControllerDelegate.swift; sourceTree = "<group>"; };
 		FAAC690C2BD681A9007BF6C0 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC690F2BD681A9007BF6C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC69112BD681A9007BF6C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				FAC1162D2BF513D8007BFBB0 /* ThirdViewModel.swift */,
 				FAC1162F2BF5140A007BFBB0 /* ThirdContentView.swift */,
 				FAAC69292BD68455007BF6C0 /* ThirdViewController.swift */,
+				FAA9CD9C2BF7932F00BE6462 /* ThirdViewControllerDelegate.swift */,
 			);
 			path = ThirdView;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA9CD9D2BF7932F00BE6462 /* ThirdViewControllerDelegate.swift in Sources */,
 				FAAC69322BD69A08007BF6C0 /* NetworkManager.swift in Sources */,
 				FA4491292BE6443800772FD1 /* FirstViewModel.swift in Sources */,
 				FAB66BFB2BE7BCCD0040A8BA /* ParameterInfoCell.swift in Sources */,

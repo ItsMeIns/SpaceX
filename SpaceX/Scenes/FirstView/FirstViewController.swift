@@ -7,15 +7,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, ThirdViewControllerDelegate {
     
     //MARK: - Properties -
     var firstViewModel: FirstViewModel?
     private let contentView = FirstContentView()
-    
-    
-    
-//    //MARK: - Content -
 
     
     //MARK: - Life cycle -
@@ -33,6 +29,11 @@ class FirstViewController: UIViewController {
         
         firstViewModel = FirstViewModel(contentView: contentView)
         firstViewModel?.fetchRocketInfo()
+        
+        
+        contentView.buttonSettings.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        contentView.buttonToRocketLaunchView.addTarget(self, action: #selector(rocketLaunchButtonTapped), for: .touchUpInside)
+        contentView.pageControl.addTarget(self, action: #selector(pageControlValueChanged(_:)), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,10 +49,6 @@ class FirstViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = contentView
-        
-        contentView.buttonSettings.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        contentView.buttonToRocketLaunchView.addTarget(self, action: #selector(rocketLaunchButtonTapped), for: .touchUpInside)
-        contentView.pageControl.addTarget(self, action: #selector(pageControlValueChanged(_:)), for: .valueChanged)
     }
     
     //MARK: - intents -
@@ -81,70 +78,8 @@ class FirstViewController: UIViewController {
             contentView.pageControl.numberOfPages = viewModel.rocketInfo.count
             firstViewModel?.updateImageViews(with: rocket.flickrImages)
         }
-        updateParameterInfoCells(with: rocket)
-        
+        updateParameterInfoCells()
     }
-    
-    func updateParameterInfoCells(with rocket: RocketInfo) {
-        for (index, cell) in contentView.scrollViewParameterInfo.visibleCells.enumerated() {
-            if let parameterInfoCell = cell as? ParameterInfoCell {
-                switch index {
-                case 0:
-                    parameterInfoCell.configure(with: "height", unit: UserDefaults.standard.string(forKey: "selectedHeightUnit") ?? "m")
-                case 1:
-                    parameterInfoCell.configure(with: "diameter", unit: UserDefaults.standard.string(forKey: "selectedDiameterUnit") ?? "m")
-                case 2:
-                    parameterInfoCell.configure(with: "mass", unit: UserDefaults.standard.string(forKey: "selectedMassUnit") ?? "kg")
-                case 3:
-                    parameterInfoCell.configure(with: "payload", unit: UserDefaults.standard.string(forKey: "selectedPayloadUnit") ?? "kg")
-                default:
-                    break
-                }
-                parameterInfoCell.rocket = rocket
-            }
-        }
-    }
-    
-//    func updateImageViews(with imageNames: [String]) {
-//        let screenWidth = UIScreen.main.bounds.width
-//        let screenHeight = contentView.scrollViewRocketImage.bounds.height
-//        contentView.scrollViewRocketImage.contentSize = CGSize(width: screenWidth * CGFloat(imageNames.count), height: screenHeight)
-//        
-//        for (index, imageName) in imageNames.enumerated() {
-//            let imageView = UIImageView(frame: CGRect(x: screenWidth * CGFloat(index), y: 0, width: screenWidth, height: screenHeight))
-//            imageView.contentMode = .scaleAspectFill
-//            imageView.clipsToBounds = true
-//            
-//            let randomIndex = Int.random(in: 0..<imageNames.count)
-//            let randomImageName = imageNames[randomIndex]
-//            
-//            if let randomImageURL = URL(string: randomImageName) {
-//                loadImageFromURL(randomImageURL) { randomImage in
-//                    DispatchQueue.main.async {
-//                        imageView.image = randomImage
-//                    }
-//                }
-//            }
-//            contentView.scrollViewRocketImage.addSubview(imageView)
-//            imageViews.append(imageView)
-//        }
-//    }
-//    
-//    func loadImageFromURL(_ url: URL, completion: @escaping (UIImage?) -> Void) {
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let error = error {
-//                print("Error loading image: \(error.localizedDescription)")
-//                completion(nil)
-//                return
-//            }
-//            
-//            guard let data = data, let image = UIImage(data: data) else {
-//                completion(nil)
-//                return
-//            }
-//            completion(image)
-//        }.resume()
-//    }
     
     @objc func pageControlValueChanged(_ sender: UIPageControl) {
         let currentPage = sender.currentPage
@@ -168,7 +103,37 @@ class FirstViewController: UIViewController {
     
     @objc func settingsButtonTapped() {
         let settingsVC = ThirdViewController()
+        settingsVC.delegate = self
         present(settingsVC, animated: true)
+    }
+    
+    func didUpdateUnits() {
+        updateParameterInfoCells()
+    }
+    
+    func updateParameterInfoCells() {
+        let selectedHeightUnit = UserDefaults.standard.string(forKey: "selectedHeightUnit") ?? "m"
+        let selectedDiameterUnit = UserDefaults.standard.string(forKey: "selectedDiameterUnit") ?? "m"
+        let selectedMassUnit = UserDefaults.standard.string(forKey: "selectedMassUnit") ?? "kg"
+        let selectedPayloadUnit = UserDefaults.standard.string(forKey: "selectedPayloadUnit") ?? "kg"
+        
+        for (index, cell) in contentView.scrollViewParameterInfo.visibleCells.enumerated() {
+            if let parameterInfoCell = cell as? ParameterInfoCell {
+                switch index {
+                case 0:
+                    parameterInfoCell.configure(with: "height", unit: selectedHeightUnit)
+                case 1:
+                    parameterInfoCell.configure(with: "diameter", unit: selectedDiameterUnit)
+                case 2:
+                    parameterInfoCell.configure(with: "mass", unit: selectedMassUnit)
+                case 3:
+                    parameterInfoCell.configure(with: "payload", unit: selectedPayloadUnit)
+                default:
+                    break
+                }
+                parameterInfoCell.rocket = firstViewModel?.rocketInfo[firstViewModel?.currentRocketIndex ?? 0]
+            }
+        }
     }
     
 }
